@@ -30,9 +30,8 @@ class Artist
   end
 
   def self.total_experience
-    self.all.reduce(0) do |sum, artist|
-      sum + artist.years_experience
-    end
+    self.all.reduce(0) {|sum, artist|
+      sum + artist.years_experience}
   end
 
   def self.most_profilic

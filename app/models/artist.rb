@@ -1,15 +1,16 @@
 class Artist
 
-  attr_reader :name, :years_experience
+  attr_reader :name, :years_experience, :donor
 
   @@all = []
 
-  def initialize(name, years_experience)
+  def initialize(name, years_experience, donor)
     @name = name
     @years_experience = years_experience
+    @donor = donor
     @@all << self
   end
-
+ 
   def self.all
     @@all
   end
@@ -18,11 +19,12 @@ class Artist
     Painting.all.select {|painting| painting.artist == self}
   end
 
+  #goes through all the galleries iterating over the galeries the artist has paintings in
   def galleries
     paintings.map {|painting| painting.gallery}
     
   end
-
+  #goes through all cities artist has paintings in
   def cities
     galleries.map do |galleries|
       galleries.city

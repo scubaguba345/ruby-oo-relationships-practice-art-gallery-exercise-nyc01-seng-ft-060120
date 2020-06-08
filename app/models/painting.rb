@@ -1,7 +1,7 @@
 #sst class
 class Painting
 
-  attr_reader :title, :price, :artist, :gallery
+  attr_reader :title, :price, :artist, :gallery, :donor
   #allows us to read the artist and gallery classes
 
   @@all = []
@@ -11,6 +11,7 @@ class Painting
     @price = price
     @artist = artist
     @gallery = gallery
+    @donor = donor
     @@all << self
   end
   #returns an array of all paintings

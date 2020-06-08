@@ -20,7 +20,11 @@ class Donor
     end
 
     def artists
-        self.artists.map {|artist| artist.name}.uniq
+        Artist.all.select {|artist| artist.donor == self} #array of objects
+    end
+
+    def artists_name
+        artists.map {|artist| artist.name}.uniq #array of strings
     end
 
 
